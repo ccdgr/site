@@ -2,7 +2,7 @@
 date: '2025-04-11T00:00:00+08:00'
 draft: false
 title: 'Go 并发安全 Map 三种实现对比：从互斥锁到分段锁'
-tags: ["Go", "Concurrency"]
+tags: ["Go", "Concurrency", "Test"]
 description: "Go 并发安全 Map 三种实现对比：sync.RWMutex、sync.Map、分段锁 ShardMap，含 Benchmark 性能测试和源码"
 ---
 
