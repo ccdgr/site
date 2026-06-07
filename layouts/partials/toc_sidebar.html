@@ -1,9 +1,0 @@
-{{- $toc := .TableOfContents }}
-{{- if $toc }}
-<aside class="toc-sidebar">
-  <nav class="toc-nav">
-    <div class="toc-title">{{- i18n "toc" | default "目录" }}</div>
-    {{ $toc }}
-  </nav>
-</aside>
-{{- end }}
