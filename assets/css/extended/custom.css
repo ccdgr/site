@@ -1,0 +1,81 @@
+/* ========== 两栏布局：TOC 侧边栏 + 内容 ========== */
+
+.post-container {
+    display: flex;
+    gap: var(--gap);
+    align-items: flex-start;
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin: 0 auto;
+}
+
+/* ---------- TOC 侧边栏 ---------- */
+
+.toc-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--header-height) + var(--gap));
+    max-height: calc(100vh - var(--header-height) - var(--gap) * 2);
+    overflow-y: auto;
+    font-size: 14px;
+    padding-right: 12px;
+    border-right: 1px solid var(--border);
+}
+
+.toc-sidebar::-webkit-scrollbar {
+    width: 3px;
+}
+
+.toc-sidebar::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+    border-radius: 3px;
+}
+
+.toc-nav .toc-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.toc-nav nav > ul,
+.toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-nav li {
+    margin: 2px 0;
+}
+
+.toc-nav a {
+    color: var(--secondary);
+    display: block;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+    border-inline-start: 2px solid transparent;
+}
+
+.toc-nav a:hover,
+.toc-nav a:focus {
+    color: var(--primary);
+    background: var(--code-bg);
+}
+
+.toc-nav li ul {
+    padding-inline-start: 12px;
+}
+
+/* ---------- 移动端 ---------- */
+
+@media screen and (max-width: 1024px) {
+    .toc-sidebar {
+        display: none;
+    }
+
+    .post-container {
+        max-width: calc(var(--main-width) + var(--gap) * 2);
+    }
+}
