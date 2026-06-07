@@ -1,0 +1,28 @@
+# AI Agents
+GEMINI.md
+CLAUDE.md
+.skills/
+MEMORY.md
+.gemini/
+.claude/
+
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Misc
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
