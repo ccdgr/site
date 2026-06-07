@@ -7,10 +7,22 @@ pygmentsstyle: dracula
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['$$', '$$']
+          inline:
+            - ['$', '$']
+
 params:
   mode: toggle
   useCDN: false
   subtitle: "Software Engineer"
+  katex: true
   customcss:
     - css/custom.css
 
