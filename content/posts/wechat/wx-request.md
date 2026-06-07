@@ -4,7 +4,7 @@ draft: false
 title: '微信小程序 wx.request 封装与全局挂载'
 tags: ["WeChat", "JavaScript"]
 description: "封装 wx.request 统一处理 token、异常、loading，挂载到 app 全局替代原生请求"
-toc: true
+toc: false
 ---
 
 > 小程序项目里到处散落着 `wx.request`，token 过期处理、loading 状态、错误提示各有各的写法。统一封装一次，全局挂载，所有页面直接用 `app.request`。
