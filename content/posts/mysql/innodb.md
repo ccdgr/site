@@ -93,26 +93,39 @@ SELECT id, name FROM users WHERE name = 'Tom';
 
 ### 最左前缀原则
 
-联合索引 `(a, b, c)` 相当于建了三个索引：
+用 **省-市-区** 类比最容易理解：
 
-- `(a)` ✅ 能用
-- `(a, b)` ✅ 能用
-- `(a, b, c)` ✅ 能用
-- `(b)` ❌ 用不了（跳过 a）
-- `(a, c)` ⚠️ 只用 a，c 用不上
+联合索引 `(province, city, district)` 就好比地址层级。你要定位一个地址，必须先知道省，才能往下找市，再往下找区。
+
+- 指定**省** → 能定位，缩小到省范围 ✅
+- 指定**省、市** → 更精确，缩小到市范围 ✅
+- 指定**省、市、区** → 完全定位 ✅
+- 只指定**市** → 不知道是哪个省的市，没法定位 ❌
+- 跳过市直接指定**区** → 只有省和区，中间断了，区用不上 ⚠️
 
 ```sql
--- 索引 (name, age, city)
+-- 索引 (province, city, district)
 
--- 走全索引
-SELECT * FROM t WHERE name = 'Tom' AND age = 25 AND city = 'SH';
+-- 提供所有层级 → 完全匹配
+SELECT * FROM address WHERE province = '广东' AND city = '深圳' AND district = '南山';
 
--- 只走 name 列，age 和 city 不走
-SELECT * FROM t WHERE name = 'Tom' AND city = 'SH';
+-- 有省有区但跳过市 → 只用省定位，district 用不上
+SELECT * FROM address WHERE province = '广东' AND district = '南山';
 
--- 不走索引（跳过了 name）
-SELECT * FROM t WHERE age = 25;
+-- 只有市 → 不知道哪个省，索引失效
+SELECT * FROM address WHERE city = '深圳';
+
+-- 只有省 → 能定位，缩到省范围
+SELECT * FROM address WHERE province = '广东';
 ```
+
+对应回通用写法，联合索引 `(a, b, c)`：
+
+- `(a)` ✅ — 同「只查省」
+- `(a, b)` ✅ — 同「查省和市」
+- `(a, b, c)` ✅ — 同「查省市区全有」
+- `(b)` ❌ — 同「只查市，不知道省」
+- `(a, c)` ⚠️ — 同「查省和区，中间市断了」
 
 ### 索引失效场景
 
