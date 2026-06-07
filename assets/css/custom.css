@@ -1,1 +1,7 @@
 /* Custom styles */
+
+.tags li::before {
+  content: "";
+  margin-inline-start: 1.5rem;
+}
+
