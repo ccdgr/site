@@ -1,7 +1,7 @@
 ---
-date: '2026-06-07T15:27:05+08:00'
+date: '2025-04-11T00:00:00+08:00'
 draft: false
-title: 'Map'
+title: 'Go 并发安全 Map 三种实现对比：从互斥锁到分段锁'
 tags: ["Go", "concurrency"]
 author: "Gao Yuanming"
 showToc: true
@@ -26,26 +26,9 @@ editPost:
     appendFilePath: true
 ---
 
-# Go 并发安全 Map 三种实现对比：从互斥锁到分段锁
-
 > 实验环境：Go 1.24, Apple M4, macOS 15, 10 核 CPU
 >
 > 所有测试均通过 `go test -race` 竞态检测，零数据竞争。
-
----
-
-## 目录
-
-1. [问题背景](#问题背景)
-2. [解法一：sync.RWMutex](#解法一syncrwmutex)
-3. [解法二：sync.Map](#解法二syncmap)
-4. [解法三：分段锁 ShardMap](#解法三分段锁-shardmap)
-5. [测试策略与用例](#测试策略与用例)
-6. [Benchmark 性能对比](#benchmark-性能对比)
-7. [分片均匀性验证](#分片均匀性验证)
-8. [竞态检测](#竞态检测)
-9. [如何选择](#如何选择)
-10. [完整源码](#完整源码)
 
 ---
 
