@@ -1,7 +1,7 @@
 ---
 date: '2026-03-17T10:00:00+08:00'
 draft: false
-title: '学习型空间索引设计与实践'
+title: 'Learning spatial index'
 tags: ["Database", "Research", "ML", "Learned Index"]
 description: "密度感知的 Hilbert 映射降维方法、误差受控的空间查询、面向动态更新的索引维护"
 toc: false
