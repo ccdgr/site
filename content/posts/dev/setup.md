@@ -3,7 +3,6 @@ date: '2023-10-13T14:23:47+08:00'
 draft: false
 title: '开发环境配置指南'
 tags: ["dev", "tooling"]
-author: "Gao Yuanming"
 description: "新机器快速搭建开发环境：Go、Homebrew、npm、Maven、Git 等常用工具的换源与配置"
 toc: true
 ---
@@ -388,39 +387,3 @@ uv run main.py
 ```
 
 ---
-
-## Rust
-
-### 安装与换源
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# 换源 ~/.cargo/config.toml
-```
-
-```toml
-[source.crates-io]
-replace-with = 'ustc'
-
-[source.ustc]
-registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
-```
-
----
-
-## 常用命令速查
-
-| 工具 | 安装 | 换源 | 初始化 |
-|---|---|---|---|
-| Go | `brew install go` | `GOPROXY` | `go mod init` |
-| Node | `brew install node` | `npm config set registry` | `npm init` |
-| pnpm | `npm i -g pnpm` | `pnpm config set registry` | `pnpm init` |
-| Java | `brew install openjdk` | `settings.xml` | `mvn archetype:generate` |
-| Python | `brew install python` | `pip config set` | `python -m venv .venv` |
-| Rust | `curl --proto ... sh.rustup.rs` | `config.toml` | `cargo init` |
-| Docker | `brew install --cask docker` | `daemon.json` | — |
-
----
-
-> 一个小技巧：把常用的 alias 和环境变量写到 `~/.zshrc` 里，换电脑时直接复制过去。

@@ -3,16 +3,14 @@ locale: en-us
 title: GYM
 theme: archie
 copyright: "© ccdgr"
-
-# pygmentsstyle: monokai
-# pygmentscodefences: true
-# pygmentscodefencesguesssyntax: true
+pygmentsstyle: dracula
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
 
 params:
   mode: toggle
   useCDN: false
   subtitle: "Software Engineer"
-
   customcss:
     - css/custom.css
 
