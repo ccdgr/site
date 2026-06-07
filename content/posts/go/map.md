@@ -4,26 +4,7 @@ draft: false
 title: 'Go 并发安全 Map 三种实现对比：从互斥锁到分段锁'
 tags: ["Go", "concurrency"]
 author: "Gao Yuanming"
-showToc: true
-TocOpen: false
-hidemeta: false
-comments: false
 description: "Go 并发安全 Map 三种实现对比：sync.RWMutex、sync.Map、分段锁 ShardMap，含 Benchmark 性能测试和源码"
-canonicalURL: "https://oooooomy.cloud/posts/go/map/"
-disableHLJS: false
-disableShare: false
-hideSummary: false
-searchHidden: false
-ShowReadingTime: true
-ShowBreadCrumbs: true
-ShowPostNavLinks: true
-ShowWordCount: true
-ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-editPost:
-    URL: "https://github.com/ccdgr/site/content"
-    Text: "Suggest Changes"
-    appendFilePath: true
 ---
 
 > 实验环境：Go 1.24, Apple M4, macOS 15, 10 核 CPU

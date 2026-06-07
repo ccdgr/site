@@ -1,26 +1,32 @@
 baseURL: https://oooooomy.cloud/
 locale: en-us
-title: Gao Yuanming
+title: GYM
+theme: archie
+copyright: "© ccdgr"
 
-theme: PaperMod
+# pygmentsstyle: monokai
+# pygmentscodefences: true
+# pygmentscodefencesguesssyntax: true
 
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+params:
+  mode: toggle
+  useCDN: false
+  subtitle: "Software Engineer"
+
+  customcss:
+    - css/custom.css
 
 menu:
   main:
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 10
-    - identifier: tags
-      name: Tags
+    - name: Home
+      url: /
+      weight: 1
+    - name: All Posts
+      url: /posts/
+      weight: 2
+    - name: Tags
       url: /tags/
-      weight: 20
-    - identifier: archives
-      name: Archives
-      url: /archives/
-      weight: 30
+      weight: 3
+    - name: Search
+      url: /search/
+      weight: 4
