@@ -1,5 +1,17 @@
 /* Custom styles */
 
+/* 移除除 header 外所有链接的下划线（border-bottom） */
+main a,
+footer a,
+.home-content a,
+.posts a,
+.tags a {
+  border-bottom: none;
+  border-block-end: none;
+}
+
+/* 按年份分组标题间距 */
+
 .tags li::before {
   content: "";
   margin-inline-start: 1.5rem;
